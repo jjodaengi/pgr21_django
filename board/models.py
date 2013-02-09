@@ -8,13 +8,12 @@ class Article(models.Model):
     #dependencies
     board = models.ForeignKey(Board)
 
-    no = models.AutoField()
+    no = models.IntegerField(null=True)
     memo = models.TextField(null=True)
-    ip = models.CharField(max_length=20,null=True)
-
-    password = models.CharField(max_length=20,null=True)
     user = models.ForeignKey(User)
+    password = models.CharField(max_length=20,null=True)
     name = models.CharField(max_length=40)
+    ip = models.CharField(max_length=20,null=True)
     homepage = models.CharField(max_length=256,null=True)
     email = models.CharField(max_length=256,null=True)
     subject = models.CharField(max_length=250)
