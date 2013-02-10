@@ -1,0 +1,171 @@
+/* 보안 */
+.hDiv a[href^="http"],
+.tdsub a[href^="http"],
+.bbsTit a[href^="http"],
+.menu1 a[href^="http"] {background-color:red !important;}
+object {display:none !important;}
+
+/* index */
+.hDiv {
+	float: left;
+	width: 360px;
+	margin: 10px 15px 10px 0;
+}
+.hDiv .tit {
+	padding: 4px 10px;
+	border: 1px solid #8e6243;
+	border-radius: 4px;
+	background-color: #a98266;
+	color: #FFF;
+	font-weight: bold;
+	font-size: 12px;
+	margin-bottom: 10px;
+	-webkit-box-shadow: 1px 1px 2px rgba(0,0,0,.5);
+	-moz-box-shadow: 1px 1px 2px rgba(0,0,0,.5);
+	-o-box-shadow: 1px 1px 2px rgba(0,0,0,.5);
+	box-shadow: 1px 1px 2px rgba(0,0,0,.5);
+}
+.hDiv .tit a {color:#FFF;}
+.hDiv ul {padding: 0;margin:0;}
+.hDiv ul a {display: inline-block;cursor:hand;}
+.hDiv a:link {text-decoration: none;}
+.hDiv ul a:hover {
+	background-color: #EEE;
+}
+.hDiv li {
+	padding: 0;
+	margin:0;
+	list-style: none;
+	height: 22px;
+	border-bottom: 1px dashed #CCC;
+}
+.hDiv .tdsub {
+	float: left;
+	width:300px;
+	padding-top:3px;
+}
+.hDiv .tdsub div {
+	display:inline-block;
+	max-width: 260px;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+.hDiv .date {
+	float: left;
+	width: 40px;
+	margin-left: 10px;
+	text-align: right;
+}
+/* //index */
+
+/* setting */
+#setting {padding:40px;}
+#setting .btn {line-height:20px;}
+/* //setting */
+
+/* 회원가입 */
+.joinPage {
+	width:820px;
+	text-align:left;
+	padding:30px 0;
+}
+.joinTitle {
+	font-weight:bold;
+	font-size:30px;
+	color:#0054b4;
+	padding:20px 0;
+}
+.joinAgree {}
+.joinCell {
+	padding:8px 0;
+}
+.joinConfirm {
+	padding:15px 0;
+}
+.bad {color:red;}
+.good {color:#00b454;}
+.joinMsg {height:400px;padding-top:200px;text-align:center;}
+.loginJoin {
+	display: block;
+	width:52px;
+	height:15px;
+	margin: 3px auto;
+	font-size:0;
+	text-indent:-9999px;
+	text-align:left;
+	background:url('/pb/outlogin_skin/pgr_login/images/i_join.gif');
+}
+.loginLost {display:none;}
+/* //회원가입 */
+
+/* 운영진소개 */
+.staffInfo {padding:20px 0 20px 140px;}
+.master {width: 780px;border-collapse: collapse;}
+.master td {border: 1px solid #bbb !important;padding:3px;text-align:center;}
+.master th {padding: 5px !important; background-color: #0872c3; color: white; border: 1px solid #bbb !important;}
+.master td:first-child {white-space:nowrap;}
+.master tr:nth-child(even) {background-color: #F0F0F0;}
+/* //운영진소개 */
+
+/* 스크랩 */
+.scrapWrap {padding: 40px;}
+.scrap {
+	font-size: 12px;
+	border-collapse: collapse;
+	border: none;
+}
+.scrap td{
+	border-bottom: 1px solid #CCC;
+	padding: 3px 14px;
+}
+/* //스크랩 */
+
+/* ========================== 태블릿 이하 ========================== */
+
+@media all and (max-width: 800px) {
+	.joinPage {width:100%}
+	.joinPage input.input {width:180px;}
+	.staffInfo {padding:20px 0;}
+}
+
+/* ========================== 모바일 ========================== */
+
+@media all and (max-width: 767px) {
+	.staffInfo {padding:20px 0;}
+	.master {width: 98%;margin:auto;}
+	.master td:first-child {width:25%;white-space:normal;}
+	.master td:nth-child(2) {width:35%;}
+	.scrapWrap {padding: 20px 0;}
+	.scrap td{padding: 3px 2px;}
+	.scrap td:first-child {width:10%;}
+	.hDiv ul {display:none;}
+	.hDiv {
+		width:74px;
+		position: relative;
+		margin:0;
+	}
+	.hDiv .bbsTit a:before {
+		content:"";
+		position:absolute;
+		top:0;
+		left:7px;
+		width:60px;
+		height:60px;
+		margin:auto;
+		border:1px solid #ccc;
+		border-radius:15px;
+		box-sizing:border-box;
+	}
+	.hDiv .bbsTit {padding:0;}
+	.hDiv .bbsTit a {
+		float:none !important;
+		display:block;
+		padding:65px 0 15px 0 !important;
+		font-size:13px;
+		text-align:center;
+		white-space: nowrap;
+		letter-spacing: -1px;
+	}
+	#indexLatest {width:296px;margin:auto;padding:20px 0 0 0 !important;}
+}
