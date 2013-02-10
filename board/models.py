@@ -9,14 +9,21 @@ class Board(models.Model):
         ('02',u'모두허용'),
         )
 
-
     name = models.CharField(max_length=10)
     current_division = models.IntegerField(verbose_name=u'현재 division')
+
+    article_per_page = models.IntegerField(default=20)
+    page_per_view = models.IntegerField(default=10)
+    page_top = models.TextField()
+    page_bottom = models.TextField()
+
     use_html = models.CharField(choices=HTML_USE,max_length=2)
     use_fileupload = models.BooleanField(default=False,verbose_name=u'파일 업로드 기능 사용')
     use_sitelink = models.BooleanField(default=False,verbose_name=u'사이트 링크 기능 사용')
     use_secret = models.BooleanField(default=False,verbose_name=u'비밀글 기능 사용')
     use_category = models.BooleanField(default=False,verbose_name=u'카테고리 기능 사용')
+    use_comment = models.BooleanField(default=True,verbose_name=u'댓글 기능 사용')
+
     total_upload_limit = models.IntegerField(default=0,verbose_name=u'전체 파일 업로드 용량')
     file_upload_limit = models.IntegerField(default=0,verbose_name=u'개별 파일 업로드 용량')
 
@@ -29,8 +36,8 @@ class Board(models.Model):
 
 class Article(models.Model):
     #dependencies
+    no = models.AutoField(primary_key=True)
     board = models.ForeignKey(Board)
-    no = models.IntegerField(null=True)
     memo = models.TextField(null=True)
     user = models.ForeignKey(User)
     password = models.CharField(max_length=20,null=True)
