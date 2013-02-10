@@ -1,13 +1,35 @@
+# -*- coding:utf-8 -*-
 from django.db import models
 from django.contrib.auth.models import User
 
 class Board(models.Model):
+    HTML_USE = (
+        ('00',u'모두막기'),
+        ('01',u'부분허용'),
+        ('02',u'모두허용'),
+        )
+
+
     name = models.CharField(max_length=10)
+    current_division = models.IntegerField(verbose_name=u'현재 division')
+    use_html = models.CharField(choices=HTML_USE,max_length=2)
+    use_fileupload = models.BooleanField(default=False,verbose_name=u'파일 업로드 기능 사용')
+    use_sitelink = models.BooleanField(default=False,verbose_name=u'사이트 링크 기능 사용')
+    use_secret = models.BooleanField(default=False,verbose_name=u'비밀글 기능 사용')
+    use_category = models.BooleanField(default=False,verbose_name=u'카테고리 기능 사용')
+    total_upload_limit = models.IntegerField(default=0,verbose_name=u'전체 파일 업로드 용량')
+    file_upload_limit = models.IntegerField(default=0,verbose_name=u'개별 파일 업로드 용량')
+
+    #TODO: 커스텀 필드 - 콤마로 구분하는 텍스트 필드
+    language_filter = models.TextField()
+    html_tag_filter = models.TextField()
+    ip_block_filter = models.TextField()
+    file_ext_filter = models.TextField()
+
 
 class Article(models.Model):
     #dependencies
     board = models.ForeignKey(Board)
-
     no = models.IntegerField(null=True)
     memo = models.TextField(null=True)
     user = models.ForeignKey(User)
@@ -31,6 +53,8 @@ class Article(models.Model):
     hit = models.IntegerField(default=0)
     vote = models.IntegerField(default=0)
     total_comment = models.IntegerField(default=0)
+    division = models.IntegerField(default=0)
+
 
 class Comment(models.Model):
     board = models.ForeignKey(Board)
