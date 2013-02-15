@@ -16,8 +16,15 @@ class ArticleAdmin(admin.ModelAdmin):
     list_display = ['no','board','category','subject','user','reg_date']
     list_filter = ['board','category','is_announcement']
 
+
+class CommentAdmin(admin.ModelAdmin):
+    inlines = []
+
+
 admin.site.register(Board,BoardAdmin)
 admin.site.register(Article,ArticleAdmin)
+admin.site.register(Comment,CommentAdmin)
+
 
 
 
