@@ -9,7 +9,8 @@ class Board(models.Model):
         ('02',u'모두허용'),
         )
 
-    name = models.CharField(max_length=10)
+    name = models.CharField(max_length=10,verbose_name=u'게시판 아이디')
+    description = models.CharField(max_length=40,verbose_name=u'게시판 설명')
     current_division = models.IntegerField(verbose_name=u'현재 division')
 
     article_per_page = models.IntegerField(default=20)
